@@ -1,4 +1,4 @@
-package arreglos;
+package javaapplication10;
 
 import java.util.*;
 
@@ -23,7 +23,8 @@ public class Arreglos {
             System.out.println("3. Sumar columna");
             System.out.println("4. Sumar diagonal principal");
             System.out.println("5. Sumar diagonal inversa");
-            System.out.println("6. Salir");
+            System.out.println("6. Media elementos");
+            System.out.println("7. Salir");
             System.out.println("Elije una opcion");
             opcion = sn.nextInt();
             switch (opcion) {
@@ -75,13 +76,29 @@ public class Arreglos {
                     }
                     break;
                 case 6:
+ 
+                    if (rellenado) {
+ 
+                        System.out.println("La media de los valores de la "
+                                + "matriz es de " + media(matriz));
+ 
+                    } else {
+                        System.out.println("Debes rellenar la matriz primero");
+                    }
+ 
+                    break;
+                case 7:
                     salir = true;
                     break;
                 default:
                     System.out.println("Tienes que meter un valor entre 1 y 7");
+ 
             }
+ 
         } while (!salir);
+ 
         System.out.println("FIN");
+ 
     }
 
     /**
@@ -137,14 +154,18 @@ public class Arreglos {
         return suma;
     }
 
-    public static int sumamedia(int[][] matriz) {
-        int suma = 0;
+    public static double media(int[][] matriz) {
+ 
+        double suma = 0, media;
+ 
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
+            for (int j = 0; j < matriz[0].length; j++) {
                 suma += matriz[i][j];
             }
         }
-        return suma;
+        media = suma / (matriz.length * matriz.length);
+        return media;
+ 
     }
-
+ 
 }
